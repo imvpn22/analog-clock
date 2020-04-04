@@ -1,16 +1,23 @@
 :root {
   --main-bg-color: #091921;
-  --main-text-color: #fff;
+  --main-text-color: #ccc;
+}
+
+* {
+  box-sizing: border-box;
+  transition: all ease 0.2s;
 }
 
 body {
   margin: 0;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 16px;
   background-color: var(--main-bg-color);
+  position: relative;
 }
 .clock {
   height: 18em;
@@ -18,7 +25,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /*   background-color: #fff; */
+  background-color: var(--main-bg-color);
   background-image: url('clock.png');
   background-position: center center;
   background-size: cover;
@@ -32,7 +39,8 @@ body {
   content: '';
   height: 0.75rem;
   width: 0.75rem;
-  background-color: #fff;
+  background-color: var(--main-text-color);
+  border: 2px solid var(--main-bg-color);
   position: absolute;
   border-radius: 50%;
   z-index: 1000;
@@ -55,7 +63,7 @@ body {
   position: absolute;
   height: 50%;
   width: 6px;
-  background-color: red;
+  background-color: var(--main-text-color);
   border-radius: 6px;
 }
 .min {
@@ -66,7 +74,7 @@ body {
   content: '';
   height: 50%;
   width: 4px;
-  background-color: #ccc;
+  background-color: var(--main-text-color);
   border-radius: 4px;
 }
 .sec {
@@ -77,6 +85,25 @@ body {
   content: '';
   height: 60%;
   width: 2px;
-  background-color: #fff;
+  background-color: #f00;
   border-radius: 2px;
+}
+
+/* Style for theme switch btn */
+.switch-cont {
+  margin: 2em auto;
+  position: absolute;
+  bottom: 0;
+}
+.switch-cont .switch-btn {
+  font-family: monospace;
+  text-transform: uppercase;
+  outline: none;
+  padding: 0.5rem 1rem;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  border: 1px solid var(--main-text-color);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all ease 0.3s;
 }
