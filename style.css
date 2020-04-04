@@ -26,7 +26,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--main-bg-color);
-  background-image: url('https://github.com/imvpn22/analog-clock/blob/master/clock.png?raw=true');
+  background-image: url('clock.png');
   background-position: center center;
   background-size: cover;
   border-radius: 50%;
