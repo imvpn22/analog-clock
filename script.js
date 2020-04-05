@@ -22,7 +22,7 @@ setLightMode = () => {
 };
 
 setDarkMode = () => {
-  document.documentElement.style.setProperty('--main-bg-color', '#091921');
+  document.documentElement.style.setProperty('--main-bg-color', '#1e1f26');
   document.documentElement.style.setProperty('--main-text-color', '#ccc');
 };
 
