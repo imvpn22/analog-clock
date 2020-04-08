@@ -16,23 +16,27 @@ setClock = () => {
 
 setInterval(setClock, 1000);
 
-setLightMode = () => {
-  document.documentElement.style.setProperty('--main-bg-color', '#fff');
-  document.documentElement.style.setProperty('--main-text-color', '#888');
-};
-
-setDarkMode = () => {
-  document.documentElement.style.setProperty('--main-bg-color', '#1e1f26');
-  document.documentElement.style.setProperty('--main-text-color', '#ccc');
+switchTheme = (evt) => {
+  const switchBtn = evt.target;
+  if (switchBtn.textContent.toLowerCase() === 'light') {
+    switchBtn.textContent = 'dark';
+    localStorage.setItem('theme', 'dark');
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    switchBtn.textContent = 'light';
+    localStorage.setItem('theme', 'light'); //add this
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
 };
 
 const switchModeBtn = document.querySelector('.switch-btn');
-switchModeBtn.addEventListener('click', () => {
-  if (switchModeBtn.textContent.toLowerCase() === 'dark') {
-    switchModeBtn.textContent = 'light';
-    setDarkMode();
-  } else {
-    switchModeBtn.textContent = 'dark';
-    setLightMode();
-  }
-});
+switchModeBtn.addEventListener('click', switchTheme, false);
+
+const currentTheme = localStorage.getItem('theme')
+  ? localStorage.getItem('theme')
+  : null;
+
+if (currentTheme) {
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  switchModeBtn.textContent = currentTheme;
+}
